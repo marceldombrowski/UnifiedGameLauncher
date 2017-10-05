@@ -25,10 +25,10 @@ namespace UnifiedGameLauncher
 
         private void browseExecutable_Click(object sender, EventArgs e)
         {
-            ShowOpenDialog("Executables|*.exe", gameExecutable, null, gameName);
+            ShowOpenDialog("Executables|*.exe", gameExecutable, gameImagePreview, gameName, gameImage);
         }
 
-        private void ShowOpenDialog(string filter, TextBox textBox, PictureBox imageBox = null, TextBox secondaryTextBox = null)
+        private void ShowOpenDialog(string filter, TextBox textBox, PictureBox imageBox = null, TextBox secondaryTextBox = null, TextBox tertiaryTextBox = null)
         {
             openFileDialog1.Filter = filter;
             openFileDialog1.FileName = "";
@@ -37,7 +37,14 @@ namespace UnifiedGameLauncher
                 textBox.Text = openFileDialog1.FileName;
                 if (imageBox != null)
                 {
-                    imageBox.Image = Image.FromFile(openFileDialog1.FileName);
+                    if (tertiaryTextBox != null)
+                    {
+                        imageBox.Image = Icon.ExtractAssociatedIcon(openFileDialog1.FileName).ToBitmap();
+                    }
+                    else
+                    {
+                        imageBox.Image = Image.FromFile(openFileDialog1.FileName);
+                    }
                 }
 
                 if (secondaryTextBox != null)
@@ -49,6 +56,12 @@ namespace UnifiedGameLauncher
                         string myName = myString.Substring(0, myString.Length - 4);
                         secondaryTextBox.Text = myName;
                     }
+                }
+
+                if (tertiaryTextBox != null)
+                {
+                    tertiaryTextBox.Text = openFileDialog1.FileName;
+                    Console.WriteLine("set text");
                 }
             }
             CheckIfAllEntriesAreValid();
@@ -106,7 +119,7 @@ namespace UnifiedGameLauncher
 
         private void AddGame_Shown(object sender, EventArgs e)
         {
-            ShowOpenDialog("Executables|*.exe", gameExecutable, null, gameName);
+            ShowOpenDialog("Executables|*.exe", gameExecutable, gameImagePreview, gameName, gameImage);
         }
     }
 }

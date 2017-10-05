@@ -30,7 +30,7 @@ namespace UnifiedGameLauncher
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            gameList.Size = new Size(this.Width, this.Height - menuStrip1.Height - 24);
+            gameList.Size = new Size(this.Width - 16, this.Height - menuStrip1.Height - 38);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -50,7 +50,13 @@ namespace UnifiedGameLauncher
 
         private void steamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyHelper.ImportFromSteam();
+            folderBrowserDialog1.SelectedPath = @"C:\Games\Steam";
+            folderBrowserDialog1.Description = "Choose Steam Root Folder";
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                MyHelper.Callback += RefreshMenu;
+                MyHelper.ImportFromSteam(folderBrowserDialog1.SelectedPath);
+            }            
         }
 
         private void RefreshMenu()
@@ -73,8 +79,13 @@ namespace UnifiedGameLauncher
             int i = 0;
             foreach (GameEntry ge in MyList)
             {
-                gameList.SmallImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
-                gameList.LargeImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
+                if (ge.GameImage.Substring(ge.GameImage.Length - 4, 4).Equals(".exe")) {
+                    gameList.SmallImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
+                    gameList.LargeImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
+                } else {
+                    gameList.SmallImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
+                    gameList.LargeImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
+                }
                 gameList.Items.Add(ge.GameName, i++);                
             }
         }
