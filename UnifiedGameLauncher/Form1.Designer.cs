@@ -54,6 +54,7 @@
             // 
             // gameList
             // 
+            this.gameList.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameList.FullRowSelect = true;
             this.gameList.Location = new System.Drawing.Point(0, 24);
             this.gameList.MultiSelect = false;
