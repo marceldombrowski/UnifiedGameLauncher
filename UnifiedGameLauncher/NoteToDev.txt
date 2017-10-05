@@ -1,0 +1,5 @@
+﻿Requirements:
+
+Visual Studio 2017 Community Edition (https://www.visualstudio.com/downloads/)
+GitHub Expansion (https://visualstudio.github.com/)
+NewtonSoft JSON (from the VS2017 package manager run: Install-Package Newtonsoft.Json -Version 10.0.3)
