@@ -60,7 +60,7 @@
             this.gameList.Size = new System.Drawing.Size(121, 97);
             this.gameList.TabIndex = 0;
             this.gameList.UseCompatibleStateImageBehavior = false;
-            this.gameList.View = System.Windows.Forms.View.List;
+            this.gameList.View = System.Windows.Forms.View.Tile;
             this.gameList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gameList_MouseClick);
             this.gameList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gameList_MouseDoubleClick);
             // 
@@ -168,8 +168,9 @@
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.Enabled = false;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -191,10 +192,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(329, 542);
+            this.ClientSize = new System.Drawing.Size(329, 761);
             this.Controls.Add(this.gameList);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(345, 1500);
+            this.MinimumSize = new System.Drawing.Size(345, 0);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "KoMa Unified Game Launcher YES - v0.1";

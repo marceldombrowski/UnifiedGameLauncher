@@ -26,6 +26,8 @@ namespace UnifiedGameLauncher
             RefreshMenu();
 
             Form1_Resize(sender, e);
+            this.Size = new Size(this.Size.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Size.Width, 0);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -74,6 +76,11 @@ namespace UnifiedGameLauncher
                 gameList.LargeImageList = new ImageList();
             }
             gameList.LargeImageList.Images.Clear();
+            if (gameList.StateImageList == null)
+            {
+                gameList.StateImageList = new ImageList();
+            }
+            gameList.StateImageList.Images.Clear();
 
 
             int i = 0;
@@ -82,9 +89,11 @@ namespace UnifiedGameLauncher
                 if (ge.GameImage.Substring(ge.GameImage.Length - 4, 4).Equals(".exe")) {
                     gameList.SmallImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
                     gameList.LargeImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
+                    gameList.StateImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
                 } else {
                     gameList.SmallImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
                     gameList.LargeImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
+                    gameList.StateImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
                 }
                 gameList.Items.Add(ge.GameName, i++);                
             }
@@ -100,6 +109,7 @@ namespace UnifiedGameLauncher
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             MyHelper.SaveAsJson();
+            RenamingHashtable.SaveHashtable();
         }
 
         private void RunSelectedItem()
@@ -120,6 +130,9 @@ namespace UnifiedGameLauncher
                 {
                     contextMenuStrip1.Show(Cursor.Position);
                 }
+            } else if (e.Button == MouseButtons.Middle)
+            {
+                
             }
         }
 

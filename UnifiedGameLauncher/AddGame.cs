@@ -54,7 +54,13 @@ namespace UnifiedGameLauncher
                         string[] mySplitString = openFileDialog1.FileName.Split('\\');
                         string myString = mySplitString[mySplitString.Length - 1];
                         string myName = myString.Substring(0, myString.Length - 4);
-                        secondaryTextBox.Text = myName;
+                        if (RenamingHashtable.GetNiceName(myName).Equals("UNDEFINED"))
+                        {
+                            secondaryTextBox.Text = myName;
+                        } else
+                        {
+                            secondaryTextBox.Text = RenamingHashtable.GetNiceName(myName);
+                        }
                     }
                 }
 
@@ -110,6 +116,13 @@ namespace UnifiedGameLauncher
         private void addGameButton_Click(object sender, EventArgs e)
         {
             MyHelperClass.AddEntry(new GameEntry(MyHelperClass.GetNextId(), gameName.Text, gameExecutable.Text, gameImage.Text));
+            {
+                string[] mySplitString = gameExecutable.Text.Split('\\');
+                string myString = mySplitString[mySplitString.Length - 1];
+                string myName = myString.Substring(0, myString.Length - 4);
+                RenamingHashtable.AddEntry(myName, gameName.Text);
+            }
+            
             ClearEntries();
             if (Callback != null)
             {

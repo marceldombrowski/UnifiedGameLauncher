@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace UnifiedGameLauncher
 {
-    public class GameEntry
+    public class GameEntry : IComparable<GameEntry>
     {
         public GameEntry(int id, string name, string args, string image)
         {
@@ -22,6 +22,16 @@ namespace UnifiedGameLauncher
         public GameEntry()
         {
 
+        }
+
+        public int CompareTo(GameEntry gameEntry2)
+        {
+            // A null value means that this object is greater.
+            if (gameEntry2 == null)
+                return 1;
+
+            else
+                return this.GameName.CompareTo(gameEntry2.GameName);
         }
 
         public int GameId { get; set; }
@@ -73,6 +83,9 @@ namespace UnifiedGameLauncher
                         string[] mySplitString = exe.Split('\\');
                         string myString = mySplitString[mySplitString.Length - 1];
                         string myName = myString.Substring(0, myString.Length - 4);
+                        myName = RenamingHashtable.GetNiceName(myName);
+                        if (myName.Equals("UNDEFINED"))
+                            continue;
                         MyGames.Add(new GameEntry(GetNextId(), myName, exe, exe));
                     }
                 }
@@ -134,6 +147,7 @@ namespace UnifiedGameLauncher
             if (File.Exists("gameList.json"))
             {
                 MyGames = JsonConvert.DeserializeObject<List<GameEntry>>(File.ReadAllText("gameList.json"));
+                MyGames.Sort();
             }
         }
 
