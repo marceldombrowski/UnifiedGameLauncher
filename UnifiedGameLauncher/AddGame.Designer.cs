@@ -126,9 +126,9 @@
             // gameImagePreview
             // 
             this.gameImagePreview.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.gameImagePreview.Location = new System.Drawing.Point(270, 13);
+            this.gameImagePreview.Location = new System.Drawing.Point(270, 32);
             this.gameImagePreview.Name = "gameImagePreview";
-            this.gameImagePreview.Size = new System.Drawing.Size(82, 82);
+            this.gameImagePreview.Size = new System.Drawing.Size(48, 48);
             this.gameImagePreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gameImagePreview.TabIndex = 9;
             this.gameImagePreview.TabStop = false;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 123);
+            this.ClientSize = new System.Drawing.Size(326, 123);
             this.Controls.Add(this.browseImage);
             this.Controls.Add(this.gameImagePreview);
             this.Controls.Add(this.gameImage);
