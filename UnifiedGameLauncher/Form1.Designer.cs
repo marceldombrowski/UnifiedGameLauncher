@@ -115,24 +115,28 @@
             this.originToolStripMenuItem.Name = "originToolStripMenuItem";
             this.originToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.originToolStripMenuItem.Text = "Origin";
+            this.originToolStripMenuItem.Click += new System.EventHandler(this.originToolStripMenuItem_Click);
             // 
             // battlenetToolStripMenuItem
             // 
             this.battlenetToolStripMenuItem.Name = "battlenetToolStripMenuItem";
             this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.battlenetToolStripMenuItem.Text = "Battle.net";
+            this.battlenetToolStripMenuItem.Click += new System.EventHandler(this.battlenetToolStripMenuItem_Click);
             // 
             // gOGGalaxyToolStripMenuItem
             // 
             this.gOGGalaxyToolStripMenuItem.Name = "gOGGalaxyToolStripMenuItem";
             this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.gOGGalaxyToolStripMenuItem.Text = "GOG Galaxy";
+            this.gOGGalaxyToolStripMenuItem.Click += new System.EventHandler(this.gOGGalaxyToolStripMenuItem_Click);
             // 
             // uPlayToolStripMenuItem
             // 
             this.uPlayToolStripMenuItem.Name = "uPlayToolStripMenuItem";
             this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uPlayToolStripMenuItem.Text = "UPlay";
+            this.uPlayToolStripMenuItem.Click += new System.EventHandler(this.uPlayToolStripMenuItem_Click);
             // 
             // manuallyAddGameToolStripMenuItem
             // 

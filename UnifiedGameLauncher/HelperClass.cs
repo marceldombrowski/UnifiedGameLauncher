@@ -99,22 +99,22 @@ namespace UnifiedGameLauncher
 
         public void ImportFromOrigin()
         {
-
+            MessageBox.Show("Todo", "Todo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void ImportFromBattleNet()
         {
-
+            MessageBox.Show("Todo", "Todo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void ImportFromGogGalaxy()
         {
-
+            MessageBox.Show("Todo", "Todo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void ImportFromUPlay()
         {
-
+            MessageBox.Show("Todo", "Todo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public List<GameEntry> GetList()
@@ -140,6 +140,7 @@ namespace UnifiedGameLauncher
         public void AddEntry(GameEntry MyEntry)
         {
             MyGames.Add(MyEntry);
+            MyGames.Sort();
         }
 
         private void LoadJson()

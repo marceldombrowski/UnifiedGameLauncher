@@ -67,7 +67,6 @@ namespace UnifiedGameLauncher
                 if (tertiaryTextBox != null)
                 {
                     tertiaryTextBox.Text = openFileDialog1.FileName;
-                    Console.WriteLine("set text");
                 }
             }
             CheckIfAllEntriesAreValid();

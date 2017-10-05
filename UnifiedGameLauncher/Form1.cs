@@ -158,5 +158,25 @@ namespace UnifiedGameLauncher
         {
             MessageBox.Show("(c) 2017, Marcel Dombrowski", "About KoMa UGLy", MessageBoxButtons.OK);
         }
+
+        private void originToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyHelper.ImportFromOrigin();
+        }
+
+        private void battlenetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyHelper.ImportFromBattleNet();
+        }
+
+        private void gOGGalaxyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyHelper.ImportFromGogGalaxy();
+        }
+
+        private void uPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyHelper.ImportFromUPlay();
+        }
     }
 }
