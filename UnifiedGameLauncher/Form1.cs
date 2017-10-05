@@ -74,11 +74,13 @@ namespace UnifiedGameLauncher
             if (gameList.LargeImageList == null)
             {
                 gameList.LargeImageList = new ImageList();
+                gameList.LargeImageList.ImageSize = new Size(48, 48);
             }
             gameList.LargeImageList.Images.Clear();
             if (gameList.StateImageList == null)
             {
                 gameList.StateImageList = new ImageList();
+                gameList.StateImageList.ImageSize = new Size(48, 48);
             }
             gameList.StateImageList.Images.Clear();
 
