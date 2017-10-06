@@ -14,6 +14,13 @@ namespace UnifiedGameLauncher
 {
     public partial class Form1 : Form
     {
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         private HelperClass MyHelper;
         private AddGame MyAddGameForm;
         private Options MyOptionsForm;
@@ -85,7 +92,7 @@ namespace UnifiedGameLauncher
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            gameList.Size = new Size(this.Width - 16, this.Height - menuStrip1.Height - 38);
+            gameList.Size = new Size(this.Width - 1, this.Height - menuStrip1.Height - 1);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -276,6 +283,20 @@ namespace UnifiedGameLauncher
         {
             MyOptionsForm = new Options(this);
             MyOptionsForm.Show();
+        }
+
+        private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 }

@@ -33,6 +33,10 @@ namespace UnifiedGameLauncher
                 radioButton2.Checked = true;
                 radioButton1.Checked = false;
             }
+
+            pictureBox1.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\data\\tile.png");
+            pictureBox2.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\data\\largeIcon.png");
+            pictureBox3.Image = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\data\\list.png");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
