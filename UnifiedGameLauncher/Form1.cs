@@ -243,7 +243,8 @@ namespace UnifiedGameLauncher
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("(c) 2017, Marcel Dombrowski", "About KoMa UGLy", MessageBoxButtons.OK);
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.Show();
         }
 
         private void originToolStripMenuItem_Click(object sender, EventArgs e)
@@ -287,7 +288,7 @@ namespace UnifiedGameLauncher
 
         private void minimizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            
         }
 
         private void menuStrip1_MouseDown(object sender, MouseEventArgs e)
@@ -297,6 +298,36 @@ namespace UnifiedGameLauncher
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void steamToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://store.steampowered.com/");
+        }
+
+        private void originToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.origin.com/");
+        }
+
+        private void battlenetToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://us.battle.net/shop/en/");
+        }
+
+        private void gogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.gog.com/");
+        }
+
+        private void uPlayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://store.ubi.com/");
         }
     }
 }
