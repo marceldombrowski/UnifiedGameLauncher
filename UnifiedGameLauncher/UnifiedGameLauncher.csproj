@@ -140,6 +140,7 @@
   <ItemGroup>
     <Content Include="KoMaUGLy.ico" />
     <Content Include="NoteToDev.txt" />
+    <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
