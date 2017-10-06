@@ -42,11 +42,11 @@
             this.manuallyAddGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -64,6 +64,7 @@
             this.gameList.TileSize = new System.Drawing.Size(300, 50);
             this.gameList.UseCompatibleStateImageBehavior = false;
             this.gameList.View = System.Windows.Forms.View.Tile;
+            this.gameList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gameList_KeyPress);
             this.gameList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gameList_MouseClick);
             this.gameList.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.gameList_MouseDoubleClick);
             // 
@@ -100,62 +101,71 @@
             this.gOGGalaxyToolStripMenuItem,
             this.uPlayToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(182, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 22);
             this.toolStripMenuItem2.Text = "Import From";
             // 
             // steamToolStripMenuItem
             // 
             this.steamToolStripMenuItem.Name = "steamToolStripMenuItem";
-            this.steamToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.steamToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.steamToolStripMenuItem.Text = "Steam";
             this.steamToolStripMenuItem.Click += new System.EventHandler(this.steamToolStripMenuItem_Click);
             // 
             // originToolStripMenuItem
             // 
             this.originToolStripMenuItem.Name = "originToolStripMenuItem";
-            this.originToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.originToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.originToolStripMenuItem.Text = "Origin";
             this.originToolStripMenuItem.Click += new System.EventHandler(this.originToolStripMenuItem_Click);
             // 
             // battlenetToolStripMenuItem
             // 
             this.battlenetToolStripMenuItem.Name = "battlenetToolStripMenuItem";
-            this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.battlenetToolStripMenuItem.Text = "Battle.net";
             this.battlenetToolStripMenuItem.Click += new System.EventHandler(this.battlenetToolStripMenuItem_Click);
             // 
             // gOGGalaxyToolStripMenuItem
             // 
             this.gOGGalaxyToolStripMenuItem.Name = "gOGGalaxyToolStripMenuItem";
-            this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.gOGGalaxyToolStripMenuItem.Text = "GOG Galaxy";
             this.gOGGalaxyToolStripMenuItem.Click += new System.EventHandler(this.gOGGalaxyToolStripMenuItem_Click);
             // 
             // uPlayToolStripMenuItem
             // 
             this.uPlayToolStripMenuItem.Name = "uPlayToolStripMenuItem";
-            this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.uPlayToolStripMenuItem.Text = "UPlay";
             this.uPlayToolStripMenuItem.Click += new System.EventHandler(this.uPlayToolStripMenuItem_Click);
             // 
             // manuallyAddGameToolStripMenuItem
             // 
             this.manuallyAddGameToolStripMenuItem.Name = "manuallyAddGameToolStripMenuItem";
-            this.manuallyAddGameToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.manuallyAddGameToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.manuallyAddGameToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.manuallyAddGameToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.manuallyAddGameToolStripMenuItem.Text = "Manually &Add Game";
             this.manuallyAddGameToolStripMenuItem.Click += new System.EventHandler(this.manuallyAddGameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(221, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
@@ -188,13 +198,6 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,9 +208,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximumSize = new System.Drawing.Size(345, 1500);
-            this.MinimumSize = new System.Drawing.Size(345, 0);
+            this.MinimumSize = new System.Drawing.Size(345, 39);
             this.Name = "Form1";
-            this.Text = "KoMa Unified Game Launcher YES - v0.1";
+            this.Text = "KoMa Unified Game Launcher YES - v0.2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);

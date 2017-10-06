@@ -203,5 +203,13 @@ namespace UnifiedGameLauncher
         {
             MyHelper.ImportFromUPlay();
         }
+
+        private void gameList_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                RunSelectedItem();
+            }
+        }
     }
 }

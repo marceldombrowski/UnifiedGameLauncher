@@ -128,6 +128,8 @@ namespace UnifiedGameLauncher
             {
                 Callback();
             }
+
+            this.Close();
         }
 
         private void AddGame_Shown(object sender, EventArgs e)

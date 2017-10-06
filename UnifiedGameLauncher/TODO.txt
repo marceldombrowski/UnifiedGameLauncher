@@ -1,5 +1,6 @@
 ﻿TODO
 - importing from steam should be better. need a routine to parse the appinfo.vdf file as it contains all the necessary information
+- editing game info is still missing
 - the app does not have a routine to handle apps with the same executable filenames
 - importing from other launchers is still missing
 - auto-update would be nice
