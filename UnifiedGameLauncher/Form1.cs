@@ -16,10 +16,61 @@ namespace UnifiedGameLauncher
     {
         private HelperClass MyHelper;
         private AddGame MyAddGameForm;
+        private Options MyOptionsForm;
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public void SetListStyle(int style)
+        {
+            gameList.View = (View)style;
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "Style", style);
+        }
+
+        public void ChangeTheme(bool lightTheme)
+        {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "UseLightTheme", lightTheme == true ? "1" : "0");
+            if (lightTheme)
+            {
+                gameList.BackColor = Color.White;
+                gameList.ForeColor = Color.Black;
+                menuStrip1.BackColor = Color.White;
+                menuStrip1.ForeColor = Color.Black;
+            } else
+            {
+                gameList.BackColor = Color.FromArgb(50, 50, 50);
+                gameList.ForeColor = Color.White;
+                menuStrip1.BackColor = Color.FromArgb(50, 50, 50);
+                menuStrip1.ForeColor = Color.White;
+            }
+        }
+
+        private void LoadSettings()
+        {
+            var registryKeyExists = Registry.CurrentUser.OpenSubKey("Software\\MarcelDombrowski", true);
+            if (registryKeyExists == null)
+                Registry.CurrentUser.CreateSubKey("Software\\MarcelDombrowski");
+            {
+            }
+            int style = (int)Registry.GetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "Style", 4);
+            gameList.View = (View)style;
+
+            int locationX = (int)Registry.GetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "LocationX", Screen.PrimaryScreen.WorkingArea.Width - this.Size.Width);
+            int locationY = (int)Registry.GetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "LocationY", 0);
+            int height = (int)Registry.GetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "Height", Screen.PrimaryScreen.WorkingArea.Height);
+
+            this.Size = new Size(this.Size.Width, height);
+            this.Location = new Point(locationX, locationY);
+
+            ChangeTheme(((string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "UseLightTheme", "1")).Equals("1") ? true : false);
+        }
+
+        public void EmptyList()
+        {
+            MyHelper.Callback += RefreshMenu;
+            MyHelper.EmptyList();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -27,9 +78,9 @@ namespace UnifiedGameLauncher
             MyHelper = new HelperClass();
             RefreshMenu();
 
+            LoadSettings();
+
             Form1_Resize(sender, e);
-            this.Size = new Size(this.Size.Width, Screen.PrimaryScreen.WorkingArea.Height);
-            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Width - this.Size.Width, 0);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -135,6 +186,10 @@ namespace UnifiedGameLauncher
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "LocationX", this.Location.X);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "LocationY", this.Location.Y);
+            Registry.SetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "Height", this.Size.Height);
+
             MyHelper.SaveAsJson();
             RenamingHashtable.SaveHashtable();
         }
@@ -210,6 +265,17 @@ namespace UnifiedGameLauncher
             {
                 RunSelectedItem();
             }
+        }
+
+        private void toolStripSeparator1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MyOptionsForm = new Options(this);
+            MyOptionsForm.Show();
         }
     }
 }

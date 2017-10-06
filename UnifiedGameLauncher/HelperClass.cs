@@ -55,6 +55,15 @@ namespace UnifiedGameLauncher
             LoadJson();
         }
 
+        public void EmptyList()
+        {
+            MyGames.Clear();
+            if (Callback != null)
+            {
+                Callback();
+            }
+        }
+
         public void AddImageToLocalDatabase(string exeName, Image myImage)
         {
             if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\icons"))
