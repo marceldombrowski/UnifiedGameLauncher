@@ -45,6 +45,11 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.storeToolstrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.steamToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.originToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.battlenetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.gogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uPlayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,11 +57,6 @@
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button1 = new System.Windows.Forms.Button();
-            this.steamToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.originToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.battlenetToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.gogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uPlayToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -120,35 +120,35 @@
             // steamToolStripMenuItem
             // 
             this.steamToolStripMenuItem.Name = "steamToolStripMenuItem";
-            this.steamToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.steamToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.steamToolStripMenuItem.Text = "Steam";
             this.steamToolStripMenuItem.Click += new System.EventHandler(this.steamToolStripMenuItem_Click);
             // 
             // originToolStripMenuItem
             // 
             this.originToolStripMenuItem.Name = "originToolStripMenuItem";
-            this.originToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.originToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.originToolStripMenuItem.Text = "Origin";
             this.originToolStripMenuItem.Click += new System.EventHandler(this.originToolStripMenuItem_Click);
             // 
             // battlenetToolStripMenuItem
             // 
             this.battlenetToolStripMenuItem.Name = "battlenetToolStripMenuItem";
-            this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.battlenetToolStripMenuItem.Text = "Battle.net";
             this.battlenetToolStripMenuItem.Click += new System.EventHandler(this.battlenetToolStripMenuItem_Click);
             // 
             // gOGGalaxyToolStripMenuItem
             // 
             this.gOGGalaxyToolStripMenuItem.Name = "gOGGalaxyToolStripMenuItem";
-            this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.gOGGalaxyToolStripMenuItem.Text = "GOG Galaxy";
             this.gOGGalaxyToolStripMenuItem.Click += new System.EventHandler(this.gOGGalaxyToolStripMenuItem_Click);
             // 
             // uPlayToolStripMenuItem
             // 
             this.uPlayToolStripMenuItem.Name = "uPlayToolStripMenuItem";
-            this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.uPlayToolStripMenuItem.Text = "UPlay";
             this.uPlayToolStripMenuItem.Click += new System.EventHandler(this.uPlayToolStripMenuItem_Click);
             // 
@@ -200,6 +200,41 @@
             this.storeToolstrip.Text = "&Store";
             this.storeToolstrip.Click += new System.EventHandler(this.minimizeToolStripMenuItem_Click);
             // 
+            // steamToolStripMenuItem1
+            // 
+            this.steamToolStripMenuItem1.Name = "steamToolStripMenuItem1";
+            this.steamToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.steamToolStripMenuItem1.Text = "Steam";
+            this.steamToolStripMenuItem1.Click += new System.EventHandler(this.steamToolStripMenuItem1_Click);
+            // 
+            // originToolStripMenuItem1
+            // 
+            this.originToolStripMenuItem1.Name = "originToolStripMenuItem1";
+            this.originToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.originToolStripMenuItem1.Text = "Origin";
+            this.originToolStripMenuItem1.Click += new System.EventHandler(this.originToolStripMenuItem1_Click);
+            // 
+            // battlenetToolStripMenuItem1
+            // 
+            this.battlenetToolStripMenuItem1.Name = "battlenetToolStripMenuItem1";
+            this.battlenetToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.battlenetToolStripMenuItem1.Text = "Battle.net";
+            this.battlenetToolStripMenuItem1.Click += new System.EventHandler(this.battlenetToolStripMenuItem1_Click);
+            // 
+            // gogToolStripMenuItem
+            // 
+            this.gogToolStripMenuItem.Name = "gogToolStripMenuItem";
+            this.gogToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.gogToolStripMenuItem.Text = "Gog";
+            this.gogToolStripMenuItem.Click += new System.EventHandler(this.gogToolStripMenuItem_Click);
+            // 
+            // uPlayToolStripMenuItem1
+            // 
+            this.uPlayToolStripMenuItem1.Name = "uPlayToolStripMenuItem1";
+            this.uPlayToolStripMenuItem1.Size = new System.Drawing.Size(124, 22);
+            this.uPlayToolStripMenuItem1.Text = "uPlay";
+            this.uPlayToolStripMenuItem1.Click += new System.EventHandler(this.uPlayToolStripMenuItem1_Click);
+            // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
@@ -250,41 +285,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // steamToolStripMenuItem1
-            // 
-            this.steamToolStripMenuItem1.Name = "steamToolStripMenuItem1";
-            this.steamToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.steamToolStripMenuItem1.Text = "Steam";
-            this.steamToolStripMenuItem1.Click += new System.EventHandler(this.steamToolStripMenuItem1_Click);
-            // 
-            // originToolStripMenuItem1
-            // 
-            this.originToolStripMenuItem1.Name = "originToolStripMenuItem1";
-            this.originToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.originToolStripMenuItem1.Text = "Origin";
-            this.originToolStripMenuItem1.Click += new System.EventHandler(this.originToolStripMenuItem1_Click);
-            // 
-            // battlenetToolStripMenuItem1
-            // 
-            this.battlenetToolStripMenuItem1.Name = "battlenetToolStripMenuItem1";
-            this.battlenetToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.battlenetToolStripMenuItem1.Text = "Battle.net";
-            this.battlenetToolStripMenuItem1.Click += new System.EventHandler(this.battlenetToolStripMenuItem1_Click);
-            // 
-            // gogToolStripMenuItem
-            // 
-            this.gogToolStripMenuItem.Name = "gogToolStripMenuItem";
-            this.gogToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.gogToolStripMenuItem.Text = "Gog";
-            this.gogToolStripMenuItem.Click += new System.EventHandler(this.gogToolStripMenuItem_Click);
-            // 
-            // uPlayToolStripMenuItem1
-            // 
-            this.uPlayToolStripMenuItem1.Name = "uPlayToolStripMenuItem1";
-            this.uPlayToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.uPlayToolStripMenuItem1.Text = "uPlay";
-            this.uPlayToolStripMenuItem1.Click += new System.EventHandler(this.uPlayToolStripMenuItem1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,7 +299,7 @@
             this.MaximumSize = new System.Drawing.Size(345, 1500);
             this.MinimumSize = new System.Drawing.Size(345, 39);
             this.Name = "Form1";
-            this.Text = "KoMa Unified Game Launcher YES - v0.2";
+            this.Text = "KoMa Unified Game Launcher YES";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
