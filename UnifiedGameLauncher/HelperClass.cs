@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace UnifiedGameLauncher
 {
@@ -54,13 +55,26 @@ namespace UnifiedGameLauncher
             LoadJson();
         }
 
+        public void AddImageToLocalDatabase(string exeName, Image myImage)
+        {
+            if (!Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\icons"))
+            {
+                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\icons");
+            }
+
+            myImage.Save(AppDomain.CurrentDomain.BaseDirectory + "\\icons\\" + exeName + ".bmp");
+        }
+
         public void ImportFromSteam(string directory)
         {
             List<string> directories = new List<string>();
             if (!File.Exists(directory + "\\steamapps\\libraryfolders.vdf"))
             {
                 MessageBox.Show("This directory does not contain your main Steam folder.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            MessageBox.Show("Importing your Steam games. This may take a while. Please press OK to start.", "Importing", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             string text = File.ReadAllText(directory + "\\steamapps\\libraryfolders.vdf");
             int i = 1;
@@ -83,10 +97,12 @@ namespace UnifiedGameLauncher
                         string[] mySplitString = exe.Split('\\');
                         string myString = mySplitString[mySplitString.Length - 1];
                         string myName = myString.Substring(0, myString.Length - 4);
+                        string exeName = myName;
                         myName = RenamingHashtable.GetNiceName(myName);
                         if (myName.Equals("UNDEFINED"))
                             continue;
                         MyGames.Add(new GameEntry(GetNextId(), myName, exe, exe));
+                        AddImageToLocalDatabase(exeName, Icon.ExtractAssociatedIcon(exe).ToBitmap());
                     }
                 }
             }

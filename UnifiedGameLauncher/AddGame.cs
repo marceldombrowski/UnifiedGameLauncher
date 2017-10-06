@@ -119,6 +119,7 @@ namespace UnifiedGameLauncher
                 string[] mySplitString = gameExecutable.Text.Split('\\');
                 string myString = mySplitString[mySplitString.Length - 1];
                 string myName = myString.Substring(0, myString.Length - 4);
+                MyHelperClass.AddImageToLocalDatabase(gameName.Text, gameImagePreview.Image);
                 RenamingHashtable.AddEntry(myName, gameName.Text);
             }
             

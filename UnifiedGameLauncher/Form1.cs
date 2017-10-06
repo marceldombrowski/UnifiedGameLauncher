@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,13 +54,22 @@ namespace UnifiedGameLauncher
 
         private void steamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.SelectedPath = @"C:\Games\Steam";
-            folderBrowserDialog1.Description = "Choose Steam Root Folder";
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            string steamPath = (string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", "");
+            if (steamPath.Equals(""))
+            {
+                MessageBox.Show("Could not find Steam, please select the directory where you installed Steam.", "Could not find Steam", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                folderBrowserDialog1.SelectedPath = @"C:\Games\Steam";
+                folderBrowserDialog1.Description = "Choose Steam Root Folder";
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    MyHelper.Callback += RefreshMenu;
+                    MyHelper.ImportFromSteam(folderBrowserDialog1.SelectedPath);
+                }
+            } else
             {
                 MyHelper.Callback += RefreshMenu;
-                MyHelper.ImportFromSteam(folderBrowserDialog1.SelectedPath);
-            }            
+                MyHelper.ImportFromSteam(steamPath);
+            }
         }
 
         private void RefreshMenu()
@@ -88,16 +99,30 @@ namespace UnifiedGameLauncher
             int i = 0;
             foreach (GameEntry ge in MyList)
             {
-                if (ge.GameImage.Substring(ge.GameImage.Length - 4, 4).Equals(".exe")) {
-                    gameList.SmallImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
-                    gameList.LargeImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
-                    gameList.StateImageList.Images.Add(Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap());
-                } else {
-                    gameList.SmallImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
-                    gameList.LargeImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
-                    gameList.StateImageList.Images.Add(Bitmap.FromFile(ge.GameImage));
-                }
+                gameList.SmallImageList.Images.Add(GetImage(ge));
+                gameList.LargeImageList.Images.Add(GetImage(ge));
+                gameList.StateImageList.Images.Add(GetImage(ge));
                 gameList.Items.Add(ge.GameName, i++);                
+            }
+        }
+
+        private Image GetImage(GameEntry ge)
+        {
+            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\icons"))
+            {
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\icons\\" + ge.GameName + ".bmp"))
+                {
+                    return Bitmap.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\icons\\" + ge.GameName + ".bmp");
+                }
+            }
+
+            if (ge.GameImage.Substring(ge.GameImage.Length - 4, 4).Equals(".exe"))
+            {
+                return Icon.ExtractAssociatedIcon(ge.GameImage).ToBitmap();
+            }
+            else
+            {
+                return Bitmap.FromFile(ge.GameImage);
             }
         }
 
