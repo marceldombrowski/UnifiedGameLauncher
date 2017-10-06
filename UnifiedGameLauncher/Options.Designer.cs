@@ -51,25 +51,25 @@
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1026, 380);
+            this.groupBox1.Size = new System.Drawing.Size(1064, 380);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Style (click on an image to change the style)";
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(683, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(709, 20);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(332, 350);
+            this.pictureBox3.Size = new System.Drawing.Size(345, 350);
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(345, 20);
+            this.pictureBox2.Location = new System.Drawing.Point(358, 20);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(332, 350);
+            this.pictureBox2.Size = new System.Drawing.Size(345, 350);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -78,7 +78,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(7, 20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(332, 350);
+            this.pictureBox1.Size = new System.Drawing.Size(345, 350);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -120,7 +120,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(964, 447);
+            this.button1.Location = new System.Drawing.Point(994, 447);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -130,7 +130,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(788, 447);
+            this.button2.Location = new System.Drawing.Point(818, 447);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 23);
             this.button2.TabIndex = 3;
@@ -142,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1051, 479);
+            this.ClientSize = new System.Drawing.Size(1081, 479);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);

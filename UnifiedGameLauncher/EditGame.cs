@@ -126,5 +126,15 @@ namespace UnifiedGameLauncher
 
             this.Close();
         }
+
+        private void browseExecutable_Click_1(object sender, EventArgs e)
+        {
+            ShowOpenDialog("Executables|*.exe", gameExecutable, gameImagePreview, gameName, gameImage);
+        }
+
+        private void browseImage_Click_1(object sender, EventArgs e)
+        {
+            ShowOpenDialog("Images|*.png;*.jpg;*.jpeg;*.bmp|Executables|*.exe", gameImage, gameImagePreview);
+        }
     }
 }

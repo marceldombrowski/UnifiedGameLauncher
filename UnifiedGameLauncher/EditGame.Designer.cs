@@ -51,6 +51,7 @@
             this.browseImage.TabIndex = 1004;
             this.browseImage.Text = "Browse...";
             this.browseImage.UseVisualStyleBackColor = true;
+            this.browseImage.Click += new System.EventHandler(this.browseImage_Click_1);
             // 
             // gameImagePreview
             // 
@@ -111,6 +112,7 @@
             this.browseExecutable.TabIndex = 1002;
             this.browseExecutable.Text = "Browse...";
             this.browseExecutable.UseVisualStyleBackColor = true;
+            this.browseExecutable.Click += new System.EventHandler(this.browseExecutable_Click_1);
             // 
             // label3
             // 

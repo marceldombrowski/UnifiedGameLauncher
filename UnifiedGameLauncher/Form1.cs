@@ -45,12 +45,16 @@ namespace UnifiedGameLauncher
                 gameList.ForeColor = Color.Black;
                 menuStrip1.BackColor = Color.White;
                 menuStrip1.ForeColor = Color.Black;
+                button1.BackColor = Color.White;
+                button1.ForeColor = Color.Black;
             } else
             {
                 gameList.BackColor = Color.FromArgb(50, 50, 50);
                 gameList.ForeColor = Color.White;
                 menuStrip1.BackColor = Color.FromArgb(50, 50, 50);
                 menuStrip1.ForeColor = Color.White;
+                button1.BackColor = Color.FromArgb(50, 50, 50);
+                button1.ForeColor = Color.White;
             }
         }
 
