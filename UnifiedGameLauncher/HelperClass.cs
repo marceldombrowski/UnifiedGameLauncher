@@ -152,6 +152,18 @@ namespace UnifiedGameLauncher
             MyGames.RemoveAt(id);
         }
 
+        public GameEntry GetEntry(int id)
+        {
+            return MyGames[id];
+        }
+
+        public void UpdateEntry(int id, GameEntry updatedEntry)
+        {
+            MyGames.RemoveAt(id);
+            MyGames.Add(updatedEntry);
+            MyGames.Sort();
+        }
+
         public string GetExecutable(int id)
         {
             return MyGames[id].GameArgs;

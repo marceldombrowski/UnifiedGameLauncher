@@ -260,7 +260,6 @@
             // 
             // editToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Enabled = false;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.editToolStripMenuItem.Text = "Edit";
@@ -299,6 +298,7 @@
             this.MaximumSize = new System.Drawing.Size(345, 1500);
             this.MinimumSize = new System.Drawing.Size(345, 39);
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.Text = "KoMa Unified Game Launcher YES";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);

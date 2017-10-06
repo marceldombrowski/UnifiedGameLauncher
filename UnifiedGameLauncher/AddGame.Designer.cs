@@ -168,6 +168,7 @@
             this.MinimizeBox = false;
             this.Name = "AddGame";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manually Add Game";
             this.Load += new System.EventHandler(this.AddGame_Load);
             this.Shown += new System.EventHandler(this.AddGame_Shown);
