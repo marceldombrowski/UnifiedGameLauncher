@@ -76,6 +76,12 @@ namespace UnifiedGameLauncher
             this.Location = new Point(locationX, locationY);
 
             ChangeTheme(((string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\MarcelDombrowski", "UseLightTheme", "1")).Equals("1") ? true : false);
+
+            if (!File.Exists("gameList.json"))
+            {
+                FirstStart firstStart = new FirstStart(this);
+                firstStart.Show();
+            }
         }
 
         public void EmptyList()
@@ -114,7 +120,7 @@ namespace UnifiedGameLauncher
             Application.Exit();
         }
 
-        private void steamToolStripMenuItem_Click(object sender, EventArgs e)
+        public void ImportFromSteam()
         {
             string steamPath = (string)Registry.GetValue(@"HKEY_CURRENT_USER\Software\Valve\Steam", "SteamPath", "");
             if (steamPath.Equals(""))
@@ -127,11 +133,37 @@ namespace UnifiedGameLauncher
                     MyHelper.Callback += RefreshMenu;
                     MyHelper.ImportFromSteam(folderBrowserDialog1.SelectedPath);
                 }
-            } else
+            }
+            else
             {
                 MyHelper.Callback += RefreshMenu;
                 MyHelper.ImportFromSteam(steamPath);
             }
+        }
+
+        public void ImportFromOrigin()
+        {
+            MyHelper.ImportFromOrigin();
+        }
+
+        public void ImportFromBattleNet()
+        {
+            MyHelper.ImportFromBattleNet();
+        }
+
+        public void ImportFromGogGalaxy()
+        {
+            MyHelper.ImportFromGogGalaxy();
+        }
+
+        public void ImportFromuPlay()
+        {
+            MyHelper.ImportFromUPlay();
+        }
+
+        private void steamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ImportFromSteam();   
         }
 
         private void RefreshMenu()
@@ -262,22 +294,22 @@ namespace UnifiedGameLauncher
 
         private void originToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyHelper.ImportFromOrigin();
+            ImportFromOrigin();
         }
 
         private void battlenetToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyHelper.ImportFromBattleNet();
+            ImportFromBattleNet();
         }
 
         private void gOGGalaxyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyHelper.ImportFromGogGalaxy();
+            ImportFromGogGalaxy();
         }
 
         private void uPlayToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MyHelper.ImportFromUPlay();
+            ImportFromuPlay();
         }
 
         private void gameList_KeyPress(object sender, KeyPressEventArgs e)
@@ -391,5 +423,10 @@ namespace UnifiedGameLauncher
                 base.WndProc(ref m);
         }
 
+        private void showFirstStartWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FirstStart firstStart = new FirstStart(this);
+            firstStart.Show();
+        }
     }
 }

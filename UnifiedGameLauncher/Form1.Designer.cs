@@ -57,6 +57,10 @@
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.showFirstStartWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,7 +117,9 @@
             this.originToolStripMenuItem,
             this.battlenetToolStripMenuItem,
             this.gOGGalaxyToolStripMenuItem,
-            this.uPlayToolStripMenuItem});
+            this.uPlayToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.showFirstStartWindowToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(224, 22);
             this.toolStripMenuItem2.Text = "Import From";
@@ -121,35 +127,35 @@
             // steamToolStripMenuItem
             // 
             this.steamToolStripMenuItem.Name = "steamToolStripMenuItem";
-            this.steamToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.steamToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.steamToolStripMenuItem.Text = "Steam";
             this.steamToolStripMenuItem.Click += new System.EventHandler(this.steamToolStripMenuItem_Click);
             // 
             // originToolStripMenuItem
             // 
             this.originToolStripMenuItem.Name = "originToolStripMenuItem";
-            this.originToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.originToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.originToolStripMenuItem.Text = "Origin";
             this.originToolStripMenuItem.Click += new System.EventHandler(this.originToolStripMenuItem_Click);
             // 
             // battlenetToolStripMenuItem
             // 
             this.battlenetToolStripMenuItem.Name = "battlenetToolStripMenuItem";
-            this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.battlenetToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.battlenetToolStripMenuItem.Text = "Battle.net";
             this.battlenetToolStripMenuItem.Click += new System.EventHandler(this.battlenetToolStripMenuItem_Click);
             // 
             // gOGGalaxyToolStripMenuItem
             // 
             this.gOGGalaxyToolStripMenuItem.Name = "gOGGalaxyToolStripMenuItem";
-            this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.gOGGalaxyToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.gOGGalaxyToolStripMenuItem.Text = "GOG Galaxy";
             this.gOGGalaxyToolStripMenuItem.Click += new System.EventHandler(this.gOGGalaxyToolStripMenuItem_Click);
             // 
             // uPlayToolStripMenuItem
             // 
             this.uPlayToolStripMenuItem.Name = "uPlayToolStripMenuItem";
-            this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.uPlayToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.uPlayToolStripMenuItem.Text = "UPlay";
             this.uPlayToolStripMenuItem.Click += new System.EventHandler(this.uPlayToolStripMenuItem_Click);
             // 
@@ -247,10 +253,12 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.runToolStripMenuItem,
+            this.toolStripSeparator3,
             this.editToolStripMenuItem,
+            this.toolStripSeparator4,
             this.removeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(118, 82);
             // 
             // runToolStripMenuItem
             // 
@@ -284,6 +292,28 @@
             this.button1.Text = "_";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(114, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(114, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(199, 6);
+            // 
+            // showFirstStartWindowToolStripMenuItem
+            // 
+            this.showFirstStartWindowToolStripMenuItem.Name = "showFirstStartWindowToolStripMenuItem";
+            this.showFirstStartWindowToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.showFirstStartWindowToolStripMenuItem.Text = "Show First Start Window";
+            this.showFirstStartWindowToolStripMenuItem.Click += new System.EventHandler(this.showFirstStartWindowToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -341,6 +371,10 @@
         private System.Windows.Forms.ToolStripMenuItem battlenetToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uPlayToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem showFirstStartWindowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 
